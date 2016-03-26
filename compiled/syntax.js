@@ -1,3 +1,7 @@
+/**
+ * Created by Fancy on 2016/3/25 0025.
+ */
+
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32,12 +36,6 @@ var _slicedToArray = function () {
 
 var _marked = [fibs].map(regeneratorRuntime.mark);
 
-/**
- * Created by Fancy on 2016/3/25 0025.
- */
-
-// "use strict";
-
 {
     var _a = 1;
 }
@@ -61,14 +59,10 @@ some[5]();
 // 循环赋值与循环绑定事件处理函数采用的是直接将i作为参数传入执行函数的方式。
 
 {
-    (function () {
-        var f = function f() {
-            //在严格模式下，函数只能在顶层作用域和函数内声明。
-            return a;
-        };
-
-        var a = "secret";
-    })();
+    var _a2 = "secret";
+    //function f () {               //在严格模式下，函数只能在顶层作用域和函数内声明。
+    //    return a;
+    //}
 }
 
 // f();
@@ -175,3 +169,100 @@ var _obj$p = _slicedToArray(obj.p, 2);
 
 var x = _obj$p[0];
 var y = _obj$p[1].y;
+
+// 函数参数的解构
+
+function add(_ref4) {
+    var _ref5 = _slicedToArray(_ref4, 2);
+
+    var x = _ref5[0];
+    var y = _ref5[1];
+
+    return x + y;
+}
+
+add([1, 2]);
+
+[[1, 2], [3, 4]].map(function (_ref6) {
+    var _ref7 = _slicedToArray(_ref6, 2);
+
+    var a = _ref7[0];
+    var b = _ref7[1];
+    return a + b;
+});
+
+// 函数参数的解构也可以使用默认值
+
+// 为解构指定默认值
+function move() {
+    var _ref8 = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+    var _ref8$x = _ref8.x;
+    var x = _ref8$x === undefined ? 0 : _ref8$x;
+    var _ref8$y = _ref8.y;
+    var y = _ref8$y === undefined ? 0 : _ref8$y;
+
+    return [x, y];
+}
+
+move({}); // [0, 0]
+move(); // [0, 0]
+
+// 为函数的参数指定默认值
+function move_1() {
+    var _ref9 = arguments.length <= 0 || arguments[0] === undefined ? { x: 0, y: 0 } : arguments[0];
+
+    var x = _ref9.x;
+    var y = _ref9.y;
+
+    return [x, y];
+}
+
+move_1({}); // [undefined, undefined]
+move_1(); // [0, 0]
+
+// undefined 会触发函数参数的默认值
+[1, undefined, 3].map(function () {
+    var x = arguments.length <= 0 || arguments[0] === undefined ? 'yes' : arguments[0];
+    return x;
+});
+
+// 圆括号的使用问题
+
+/*
+ * 变量声明中的模式不能带有圆括号。(var let const 语句中等号前面的部分不能带有圆括号)
+ * 函数的参数中，模式中不能带有圆括号
+ * 不能将整个模式或者嵌套模式中的一层放入圆括号。
+ */
+
+// 用途
+
+// 交换变量的值
+
+// 取出函数返回的多个值
+var _ref10 = [y, x];
+x = _ref10[0];
+y = _ref10[1];
+function example() {
+    return [1, 2, 3];
+}
+
+var _example = example();
+
+var _example2 = _slicedToArray(_example, 3);
+
+var aa = _example2[0];
+var bb = _example2[1];
+var cc = _example2[2];
+
+function example_1() {
+    return {
+        lal: 12,
+        ala: 21
+    };
+}
+
+var _example3 = example();
+
+var lal = _example3.lal;
+var ala = _example3.ala;

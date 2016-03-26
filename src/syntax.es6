@@ -2,7 +2,7 @@
  * Created by Fancy on 2016/3/25 0025.
  */
 
-// "use strict";
+"use strict";
 
 {
     let a = 1;
@@ -25,9 +25,9 @@ some[5]();
 
 {
     let a = "secret";
-    function f () {               //在严格模式下，函数只能在顶层作用域和函数内声明。
-        return a;
-    }
+    //function f () {               //在严格模式下，函数只能在顶层作用域和函数内声明。
+    //    return a;
+    //}
 }
 
 // f();
@@ -88,5 +88,62 @@ var obj = {
 
 var { p: [x, { y }] } = obj;
 
+// 函数参数的解构
 
+function add ([x, y]) {
+    return x + y;
+}
 
+add([1, 2]);
+
+[[1, 2], [3, 4]].map(([a, b]) => a + b);
+
+// 函数参数的解构也可以使用默认值
+
+// 为解构指定默认值
+function move ({x = 0, y = 0} = {}) {
+    return [x, y];
+}
+
+move({});   // [0, 0]
+move();     // [0, 0]
+
+// 为函数的参数指定默认值
+function move_1 ({x, y} = {x: 0, y: 0}) {
+    return [x, y];
+}
+
+move_1({}); // [undefined, undefined]
+move_1();  // [0, 0]
+
+// undefined 会触发函数参数的默认值
+[1, undefined, 3].map((x = 'yes') => x);
+
+// 圆括号的使用问题
+
+/*
+ * 变量声明中的模式不能带有圆括号。(var let const 语句中等号前面的部分不能带有圆括号)
+ * 函数的参数中，模式中不能带有圆括号
+ * 不能将整个模式或者嵌套模式中的一层放入圆括号。
+ */
+
+// 用途
+
+// 交换变量的值
+[x, y] = [y, x];
+
+// 取出函数返回的多个值
+function example () {
+    return [1, 2, 3]
+}
+
+var [aa, bb, cc] = example();
+
+function example_1 () {
+    return {
+        lal: 12,
+        ala: 21
+    };
+}
+
+var {lal, ala} = example();
