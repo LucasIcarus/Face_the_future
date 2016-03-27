@@ -266,3 +266,111 @@ var _example3 = example();
 
 var lal = _example3.lal;
 var ala = _example3.ala;
+
+// 函数参数的定义
+
+// 有序
+
+function ff(_ref11) {
+    var _ref12 = _slicedToArray(_ref11, 3);
+
+    var x = _ref12[0];
+    var y = _ref12[1];
+    var z = _ref12[2];
+
+    return;
+}
+
+ff([1, 2, 3]);
+
+// 无序
+function fff(_ref13) {
+    var x = _ref13.x;
+    var y = _ref13.y;
+    var z = _ref13.z;
+
+    return;
+}
+
+fff({ z: 3, y: 2, x: 1 });
+
+// 提取json数据
+var jsonData = {
+    id: '42',
+    status: 'OK',
+    data: [867, 1234]
+};
+
+var id = jsonData.id;
+var status = jsonData.status;
+var number = jsonData.data;
+
+// 函数参数的默认值
+
+// 遍历map结构
+
+var map = new Map();
+
+map.set('first', 'hello');
+map.set('second', 'world');
+
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+    for (var _iterator = map[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var _step$value = _slicedToArray(_step.value, 2);
+
+        var key = _step$value[0];
+        var value = _step$value[1];
+
+        console.log(key + 'is' + value);
+    }
+
+    // 输入模块的指定方法
+} catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+        }
+    } finally {
+        if (_didIteratorError) {
+            throw _iteratorError;
+        }
+    }
+}
+
+var _require = require('source-map');
+
+var SourceMapConsumer = _require.SourceMapConsumer;
+var SourceNode = _require.SourceNode;
+
+// -------------------------------------------------------------------------
+
+var text = 'sample';
+
+function sample_test(arg1, arg2) {
+    return arg1.includes(arg2);
+}
+
+sample_test(text, 'sa');
+
+var text_3 = text.repeat(3);
+
+console.log("\n    In JavaScript this is \n    not legal!\n    It is a " + text + "!\n");
+
+{
+    var _x4 = 1,
+        _y = 2;
+    console.log(_x4 + " + " + _y + " = " + (_x4 + _y) + " ");
+
+    var helloWorld = function helloWorld() {
+        return 'Hello World';
+    };
+
+    console.log(" foo " + helloWorld() + " bar");
+}

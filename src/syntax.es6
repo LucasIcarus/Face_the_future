@@ -147,3 +147,77 @@ function example_1 () {
 }
 
 var {lal, ala} = example();
+
+// 函数参数的定义
+
+// 有序
+function ff ([x, y, z]) {
+    return ;
+}
+
+ff([1, 2, 3]);
+
+// 无序
+function fff ({x, y, z}) {
+    return ;
+}
+
+fff({z: 3, y: 2, x: 1});
+
+// 提取json数据
+var jsonData = {
+    id: '42',
+    status: 'OK',
+    data: [867, 1234]
+};
+
+let {id, status, data:number} = jsonData;
+
+// 函数参数的默认值
+
+// 遍历map结构
+
+var map = new Map();
+
+map.set('first', 'hello');
+map.set('second', 'world');
+
+for (let [key, value] of map) {
+    console.log(key + 'is' + value);
+}
+
+// 输入模块的指定方法
+
+const { SourceMapConsumer, SourceNode} = require('source-map');
+
+// -------------------------------------------------------------------------
+
+var text = 'sample';
+
+function sample_test (arg1, arg2) {
+    return arg1.includes(arg2);
+}
+
+sample_test(text, 'sa');
+
+var text_3 = text.repeat(3);
+
+console.log(`
+    In JavaScript this is 
+    not legal!
+    It is a ${text}!
+`);
+
+{
+    let x = 1,
+        y = 2;
+    console.log(`${x} + ${y} = ${x + y} `);
+
+    const helloWorld = function () {
+        return 'Hello World'
+    }
+
+    console.log(` foo ${helloWorld()} bar`);
+}
+
+
