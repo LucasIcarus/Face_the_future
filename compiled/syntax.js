@@ -7,6 +7,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.A = undefined;
 
 var _slicedToArray = function () {
     function sliceIterator(arr, i) {
@@ -33,6 +34,8 @@ var _slicedToArray = function () {
         }
     };
 }();
+
+require("babel-polyfill");
 
 var _marked = [fibs].map(regeneratorRuntime.mark);
 
@@ -373,4 +376,14 @@ console.log("\n    In JavaScript this is \n    not legal!\n    It is a " + text 
     };
 
     console.log(" foo " + helloWorld() + " bar");
+}
+
+var ps = document.querySelector('p');
+
+Array.from(ps).forEach(function (p) {
+    console.log(p);
+});
+
+function foo1() {
+    var args = Array.from(arguments);
 }

@@ -4,6 +4,8 @@
 
 "use strict";
 
+import 'babel-polyfill';
+
 {
     let a = 1;
 }
@@ -220,4 +222,13 @@ console.log(`
     console.log(` foo ${helloWorld()} bar`);
 }
 
+let ps = document.querySelector('p');
+
+Array.from(ps).forEach(function (p) {
+    console.log(p);
+});
+
+function foo1 () {
+    var args = Array.from(arguments);
+}
 
