@@ -30,4 +30,23 @@ var results = customers.filter(function (c) {
 });
 console.log(results);
 
+function m1 ({x = 0, y= 0} = {}) {
+    return [x, y];
+}
+
+function m2 ({x, y} = {x: 0, y: 0}) {
+    return [x, y];
+}
+
+var arr1 = [12, 34];
+
+function add (x, y) {
+    return x + y;
+}
+
+add(...arr1);
+
+function laLaName () {}
+
+console.log(laLaName.name);
 

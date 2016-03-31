@@ -73,5 +73,37 @@
 	});
 	console.log(results);
 
+	function m1() {
+	    var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+	    var _ref$x = _ref.x;
+	    var x = _ref$x === undefined ? 0 : _ref$x;
+	    var _ref$y = _ref.y;
+	    var y = _ref$y === undefined ? 0 : _ref$y;
+
+	    return [x, y];
+	}
+
+	function m2() {
+	    var _ref2 = arguments.length <= 0 || arguments[0] === undefined ? { x: 0, y: 0 } : arguments[0];
+
+	    var x = _ref2.x;
+	    var y = _ref2.y;
+
+	    return [x, y];
+	}
+
+	var arr1 = [12, 34];
+
+	function add(x, y) {
+	    return x + y;
+	}
+
+	add.apply(undefined, arr1);
+
+	function laLaName() {}
+
+	console.log(laLaName.name);
+
 /***/ }
 /******/ ]);
