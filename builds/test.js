@@ -48,6 +48,8 @@
 
 	// require('babel-polyfill');
 
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 	var arr = Array.of(1, 2, 3);
 
 	// console.log(arr);
@@ -104,6 +106,12 @@
 	function laLaName() {}
 
 	console.log(laLaName.name);
+
+	var arr_1 = [1, 5, 7, 5, 4, 1, 3];
+
+	var set_1 = new Set(arr_1);
+
+	var arr_2 = [].concat(_toConsumableArray(set_1));
 
 /***/ }
 /******/ ]);

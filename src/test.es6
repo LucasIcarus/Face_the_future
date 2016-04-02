@@ -50,3 +50,9 @@ function laLaName () {}
 
 console.log(laLaName.name);
 
+var arr_1 = [1,5,7,5,4,1,3];
+
+var set_1 = new Set (arr_1);
+
+var arr_2 = [...set_1];
+
