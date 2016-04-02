@@ -56,3 +56,8 @@ var set_1 = new Set (arr_1);
 
 var arr_2 = [...set_1];
 
+var arr_test = [['name', 'Dachui'], ['age', 23], ['gender', 'male']];
+
+for ([key,value] of arr_test) {
+    console.log(key + 'is' + value);
+}
