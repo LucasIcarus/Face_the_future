@@ -1,12 +1,8 @@
-"use strict";
-
-// require('babel-polyfill/');
-
 function* fibonacci () {
     let [prev, curr] = [0, 1];
     for (;;) {
         [prev, curr] = [curr, prev + curr];
-        yield curr;
+        yield prev;
     }
 }
 

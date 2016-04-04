@@ -27,3 +27,9 @@ And what the hell are ArrayBuffer 、 TypeArray and DataView?
 
 The new structures Set and Map is pretty cool.
 
+#### 04.04
+
+By default, Babel will transform the ES6 syntax only. So here comes the problem, with different environment,
+like new editon of nodejs、old edition of nodejs、browser, the different polyfill-ways are needed.
+
+It's quiet a mess for a rookie.

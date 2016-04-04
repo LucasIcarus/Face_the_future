@@ -46,89 +46,49 @@
 
 	"use strict";
 
-	// require('babel-polyfill');
+	// require('babel-polyfill/');
 
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+	var _marked = [fibonacci].map(regeneratorRuntime.mark);
 
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	function fibonacci() {
+	    var prev, curr, _ref;
 
-	var arr = Array.of(1, 2, 3);
+	    return regeneratorRuntime.wrap(function fibonacci$(_context) {
+	        while (1) {
+	            switch (_context.prev = _context.next) {
+	                case 0:
+	                    prev = 0;
+	                    curr = 1;
 
-	// console.log(arr);
+	                case 2:
+	                    _ref = [curr, prev + curr];
+	                    prev = _ref[0];
+	                    curr = _ref[1];
+	                    _context.next = 7;
+	                    return curr;
 
-	arr.push(12);
+	                case 7:
+	                    _context.next = 2;
+	                    break;
 
-	// console.log('Need I do anything more to pleasure my boss?');
-
-	var customers = [{
-	    name: 'Jack',
-	    age: 30,
-	    city: 'Xiamen'
-	}, {
-	    name: 'Lily',
-	    age: 25,
-	    city: 'Xuzhou'
-	}];
-
-	var results = customers.filter(function (c) {
-	    if (c.city == 'Xiamen') {
-	        return { name: c.name, age: c.age };
-	    }
-	});
-	console.log(results);
-
-	function m1() {
-	    var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-	    var _ref$x = _ref.x;
-	    var x = _ref$x === undefined ? 0 : _ref$x;
-	    var _ref$y = _ref.y;
-	    var y = _ref$y === undefined ? 0 : _ref$y;
-
-	    return [x, y];
+	                case 9:
+	                case "end":
+	                    return _context.stop();
+	            }
+	        }
+	    }, _marked[0], this);
 	}
-
-	function m2() {
-	    var _ref2 = arguments.length <= 0 || arguments[0] === undefined ? { x: 0, y: 0 } : arguments[0];
-
-	    var x = _ref2.x;
-	    var y = _ref2.y;
-
-	    return [x, y];
-	}
-
-	var arr1 = [12, 34];
-
-	function add(x, y) {
-	    return x + y;
-	}
-
-	add.apply(undefined, arr1);
-
-	function laLaName() {}
-
-	console.log(laLaName.name);
-
-	var arr_1 = [1, 5, 7, 5, 4, 1, 3];
-
-	var set_1 = new Set(arr_1);
-
-	var arr_2 = [].concat(_toConsumableArray(set_1));
-
-	var arr_test = [['name', 'Dachui'], ['age', 23], ['gender', 'male']];
 
 	var _iteratorNormalCompletion = true;
 	var _didIteratorError = false;
 	var _iteratorError = undefined;
 
 	try {
-	    for (var _iterator = arr_test[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	        var _step$value = _slicedToArray(_step.value, 2);
+	    for (var _iterator = fibonacci()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var n = _step.value;
 
-	        key = _step$value[0];
-	        value = _step$value[1];
-
-	        console.log(key + 'is' + value);
+	        if (n > 1000) break;
+	        console.log(n);
 	    }
 	} catch (err) {
 	    _didIteratorError = true;
