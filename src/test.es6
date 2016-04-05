@@ -14,3 +14,19 @@ for (let n of fibonacci()) {
     if (n > 1000) break;
     console.log(n);
 }
+
+function* objectEntries () {
+    var propKeys = Object.keys(this);
+    
+    for (let key of propKeys) {
+        yield [key, this[key]];
+    } 
+}
+
+let jane = {first: 'Jane', second: 'Doe'};
+
+jane[Symbol.iterator] = objectEntries;
+
+for (let [key, value] of jane) {
+    console.log(`${key}: ${value}`);
+}

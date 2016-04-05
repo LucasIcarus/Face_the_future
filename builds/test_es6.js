@@ -1,12 +1,13 @@
-function* fibonacci () {
-    let [prev, curr] = [0, 1];
-    for (;;) {
-        [prev, curr] = [curr, prev + curr];
-        yield prev;
+function* iterTree (tree) {
+    if (Array.isArray(tree)) {
+        for (let i = 0; i < tree.length; i++) {
+            yield* iterTree(tree[i]);
+        }
+    } else {
+        yield tree;
     }
 }
 
-for (let n of fibonacci()) {
-    if (n > 1000) break;
-    console.log(n);
-}
+const tree = ['a', ['b', ['c', 'f'],'s'], 'x', ['y', 'z']];
+
+console.log([...iterTree(tree)]);

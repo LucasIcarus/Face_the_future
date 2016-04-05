@@ -33,3 +33,9 @@ By default, Babel will transform the ES6 syntax only. So here comes the problem,
 like new editon of nodejs、old edition of nodejs、browser, the different polyfill-ways are needed.
 
 It's quiet a mess for a rookie.
+
+#### 04.05
+
+Without Iterator and so many other features of ES6, what we can easily use are just some syntactic sugar?
+
+The learning is coming to the Promise object, another feature couldn't work without polyfill!
