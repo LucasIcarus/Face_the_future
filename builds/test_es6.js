@@ -1,13 +1,21 @@
-function* iterTree (tree) {
-    if (Array.isArray(tree)) {
-        for (let i = 0; i < tree.length; i++) {
-            yield* iterTree(tree[i]);
-        }
-    } else {
-        yield tree;
-    }
+var output = function (data) {
+    console.log(data);
+};
+
+var square = function (x, callback) {
+    var result = x * x;
+    callback(result);
 }
 
-const tree = ['a', ['b', ['c', 'f'],'s'], 'x', ['y', 'z']];
+var Thunk = function (fn) {
+    return function () {
+        var args = Array.prototype.slice.call(arguments);
+        return function (callback) {
+            args.push(callback);
+            return fn.apply(this, args);
+        };
+    };
+};
 
-console.log([...iterTree(tree)]);
+var squareThunk = Thunk(square);
+squareThunk(12)(output);
