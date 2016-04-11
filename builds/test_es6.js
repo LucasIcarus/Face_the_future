@@ -1,21 +1,14 @@
-var output = function (data) {
-    console.log(data);
-};
-
-var square = function (x, callback) {
-    var result = x * x;
-    callback(result);
+class Human {
+    constructor(x,y) {
+        this.x = x;
+        this.y = y;
+    }
+    add() {
+        return () => this.x + this.y;
+    }
 }
 
-var Thunk = function (fn) {
-    return function () {
-        var args = Array.prototype.slice.call(arguments);
-        return function (callback) {
-            args.push(callback);
-            return fn.apply(this, args);
-        };
-    };
-};
+var A = new Human(5,6);
 
-var squareThunk = Thunk(square);
-squareThunk(12)(output);
+
+console.log(A.add()());
